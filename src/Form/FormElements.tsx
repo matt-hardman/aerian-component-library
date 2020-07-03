@@ -167,6 +167,7 @@ export const Select: React.FC<SelectProps> = ({
   options,
   className,
   onChange,
+  ...rest
 }) => {
   const selectId = label.replace(/\s+/g, "-").toLowerCase();
 
@@ -180,13 +181,12 @@ export const Select: React.FC<SelectProps> = ({
   );
 
   return (
-    <div className={cx([className])}>
+    <div className={cx([className])} {...rest}>
       <label htmlFor={selectId}>{label}</label>
       <ReactSelect
-        name={selectId}
         id={selectId}
+        name={selectId}
         defaultValue={defaultValue || options[0]}
-        value={defaultValue || options[0]}
         options={options}
         onChange={setSelection}
       />
@@ -200,6 +200,7 @@ export const FormSelect: React.FC<FormSelectProps> = ({
   options,
   defaultValue,
   className,
+  ...rest
 }) => (
   <ControlledElement
     Component={Select}
@@ -208,10 +209,10 @@ export const FormSelect: React.FC<FormSelectProps> = ({
     options={options}
     defaultValue={defaultValue || options[0]}
     className={className}
+    {...rest}
   />
 );
 
-// more descriptive - controlled element? use control
 // typings - pass in component props
 export const ControlledElement: React.FC<WrapComponentProps> = ({
   Component,
