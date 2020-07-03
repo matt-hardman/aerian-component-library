@@ -46,29 +46,35 @@ export const form = () => {
             },
           ]}
         />
+
         <FormInputGroup
-          name="another_group_of_things"
-          label="Another group of things"
+          name="peoples_name"
+          label="People's Names"
           type="checkbox"
           inputs={[
             {
-              label: "Thing 1",
-              value: "another_thing_1",
+              label: "Jon",
+              value: "jon",
               defaultChecked: true,
             },
             {
-              label: "Thing 2",
-              value: "another_thing_2",
+              label: "Amy",
+              value: "amy",
+            },
+            {
+              label: "Carol",
+              value: "carol",
             },
           ]}
         />
 
         <FormSelect
-          name="thing_selector"
-          label="Thing selector"
+          name="types_of_cheese"
+          label="Types of cheese"
           options={[
-            { label: "Thing", value: "thing" },
-            { label: "Thing2", value: "thing2" },
+            { label: "Cheddar", value: "cheddar" },
+            { label: "Gouda", value: "gouda" },
+            { label: "Brie", value: "brie" },
           ]}
         />
         <FormControls />
