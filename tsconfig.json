@@ -17,5 +17,6 @@
     "build",
     "src/**/*.stories.tsx",
     "src/**/*.test.tsx"
-  ]
+  ],
+  "files": ["./modules.d.ts"]
 }
