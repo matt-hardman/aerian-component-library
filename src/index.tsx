@@ -1,3 +1,7 @@
-import TestComponent from "./TestComponent/TestComponent";
-
-export { TestComponent };
+export {
+  Form,
+  FormContents,
+  FormControls,
+  FormInput,
+  FormInputGroup,
+} from "./Form";
