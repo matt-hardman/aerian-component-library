@@ -5,10 +5,51 @@ module.exports = {
   // Add any Storybook addons you want here: https://storybook.js.org/addons/
   addons: [],
   webpackFinal: async (config) => {
+    // config.module.rules.push({
+    //   test: /\.scss$/,
+    //   use: ["style-loader", "css-loader", "sass-loader"],
+    //   include: path.resolve(__dirname, "../"),
+    // });
+
     config.module.rules.push({
-      test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
-      include: path.resolve(__dirname, "../"),
+      oneOf: [
+        {
+          test: /\.module\.s?css$/,
+          loaders: [
+            "style-loader",
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                importLoaders: 2,
+              },
+            },
+            "resolve-url-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
+          include: path.resolve(__dirname, "../"),
+        },
+        {
+          test: /\.s?css$/,
+          loaders: [
+            "style-loader",
+            "css-loader",
+            "resolve-url-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                sourceMap: true,
+              },
+            },
+          ],
+          include: path.resolve(__dirname, "../"),
+        },
+      ],
     });
 
     config.module.rules.push({
@@ -18,7 +59,7 @@ module.exports = {
         presets: [["react-app", { flow: false, typescript: true }]],
       },
     });
-    config.resolve.extensions.push(".ts", ".tsx");
+    config.resolve.extensions.push(".ts", ".tsx", ".scss");
 
     return config;
   },
