@@ -6,9 +6,8 @@ import {
   FormControls,
   FormInput,
   FormInputGroup,
-  WrapElement,
+  FormSelect,
 } from ".";
-// import Select from "../Select";
 
 export default {
   title: "Form",
@@ -33,17 +32,17 @@ export const form = () => {
 
         <FormInput name="name" label="Name" placeholder="Your name" />
         <FormInputGroup
-          name="a_group_of_things"
-          label="A group of things"
+          name="types_of_fish"
+          label="Types of fish"
           inputs={[
             {
-              label: "Thing 1",
-              value: "thing_1",
+              label: "Salmon",
+              value: "salmon",
               defaultChecked: true,
             },
             {
-              label: "Thing 2",
-              value: "thing_2",
+              label: "Pike",
+              value: "pike",
             },
           ]}
         />
@@ -63,15 +62,15 @@ export const form = () => {
             },
           ]}
         />
-        {/* <WrapElement
-                    Component={Select}
-                    name="thing_selector"
-                    label="Thing selector"
-                    options={[
-                        { label: "Thing", value: "thing" },
-                        { label: "Thing2", value: "thing2" },
-                    ]}
-                /> */}
+
+        <FormSelect
+          name="thing_selector"
+          label="Thing selector"
+          options={[
+            { label: "Thing", value: "thing" },
+            { label: "Thing2", value: "thing2" },
+          ]}
+        />
         <FormControls />
       </FormContents>
     </Form>
