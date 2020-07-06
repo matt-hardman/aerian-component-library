@@ -85,6 +85,7 @@ export const FormInput: React.FC<FormInputProps> = ({
         type={type}
         aria-label={label}
         ref={register}
+        className={styles.input}
         {...rest}
       />
       {/* disclosure pattern */}
