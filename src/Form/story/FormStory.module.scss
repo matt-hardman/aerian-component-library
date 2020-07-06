@@ -1,0 +1,36 @@
+.formInput {
+  align-items: center;
+  display: flex;
+
+  input {
+    margin-left: 8px;
+  }
+}
+
+.formContents {
+  padding: 16px;
+}
+
+.formControls {
+  background: #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+
+  button {
+    cursor: pointer;
+    border: none;
+    height: 30px;
+    width: 120px;
+  }
+
+  button:first-child {
+    background: #2e93ff;
+    margin-right: 16px;
+  }
+
+  button:nth-child(2) {
+    background: none;
+    text-decoration: underline;
+  }
+}

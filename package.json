@@ -1,6 +1,6 @@
 {
-  "name": "aerian-component-library",
-  "version": "1.0.0",
+  "name": "matth-test-component-library",
+  "version": "0.1.0",
   "description": "",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -21,10 +21,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
+    "@hookform/error-message": "^0.0.2",
+    "@hookform/resolvers": "^0.0.5",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@storybook/react": "^5.3.19",
     "@types/react": "^16.9.41",
+    "@types/yup": "^0.29.3",
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
     "babel-preset-react-app": "^9.1.2",
@@ -33,6 +36,8 @@
     "postcss-import": "^12.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.0.1",
+    "react-select": "^3.1.0",
     "resolve-url-loader": "^3.1.1",
     "rollup": "^2.18.2",
     "rollup-plugin-peer-deps-external": "^2.2.3",
@@ -40,6 +45,7 @@
     "rollup-plugin-sass-modules": "^1.4.0",
     "rollup-plugin-typescript2": "^0.27.1",
     "sass-loader": "^9.0.0",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.6",
+    "yup": "^0.29.1"
   }
 }
