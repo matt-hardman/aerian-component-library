@@ -1,0 +1,17 @@
+// colours
+$light-grey: #b3b3b3;
+
+// borders
+$border-radius: 4px;
+
+// padding
+$default-padding: 8px;
+
+:root {
+  // form input element
+  --input-border-colour: #{$light-grey};
+  --input-border: 1px solid var(--input-border-colour);
+  --input-border-radius: #{$border-radius};
+  --input-height: 38px;
+  --input-padding: #{$default-padding};
+}
