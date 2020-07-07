@@ -1,5 +1,5 @@
 {
-  "name": "matth-test-component-library",
+  "name": "test-aerian-component-library",
   "version": "0.1.0",
   "description": "",
   "main": "build/index.js",
@@ -9,6 +9,9 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "npm-publish": "rollup -c && yarn publish",
+    "npm-publish:local": "rollup -c && yalc publish",
+    "npm-update:local": "rollup -c && yalc push",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook"
   },
@@ -46,6 +49,7 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "sass-loader": "^9.0.0",
     "typescript": "^3.9.6",
+    "yalc": "^1.0.0-pre.37",
     "yup": "^0.29.1"
   }
 }

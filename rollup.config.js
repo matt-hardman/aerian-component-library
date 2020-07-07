@@ -34,7 +34,8 @@ export default {
     postcss({
       plugins: [inlineCssImports(), autoprefixer(), cssnano()],
       sourceMap: true,
-      extract: true,
+      extract: false,
+      modules: true,
     }),
   ],
 };
