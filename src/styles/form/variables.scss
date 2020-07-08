@@ -13,5 +13,6 @@ $default-padding: 8px;
   --input-border: 1px solid var(--input-border-colour);
   --input-border-radius: #{$border-radius};
   --input-height: 38px;
+  --input-width: 100%;
   --input-padding: #{$default-padding};
 }
