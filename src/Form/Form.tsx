@@ -1,13 +1,13 @@
 import React, { HTMLAttributes } from "react";
 import * as yup from "yup";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 
 import { FormContext } from "./useFormContext";
 
-interface FormProps extends HTMLAttributes<HTMLElement> {
+interface FormProps<T extends object> extends HTMLAttributes<HTMLElement> {
   validationSchema: Record<string, YupTypes>;
-  onSubmitFn: (data: Record<string, string | string[]>) => void;
+  onSubmitFn: SubmitHandler<T>;
   onResetFn?: () => void;
 }
 
@@ -43,17 +43,17 @@ export const FormControls: React.FC<FormControlsProps> = ({
   </div>
 );
 
-export function Form({
+export function Form<T extends object>({
   children,
   className,
   onSubmitFn,
   onResetFn,
   validationSchema,
   ...rest
-}: FormProps) {
+}: FormProps<T>) {
   const wrappedValidationSchema = yup.object().shape(validationSchema);
 
-  const { register, handleSubmit, control, errors } = useForm({
+  const { register, handleSubmit, control, errors } = useForm<T>({
     resolver: yupResolver(wrappedValidationSchema),
   });
 
