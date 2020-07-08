@@ -19,7 +19,14 @@ const validationSchema = {
   email: yup.string().email().required(),
 };
 
-const submitHandler = (d: any) => console.log(d);
+interface FormInputs {
+  email: string;
+  types_of_fish: string;
+  peoples_name: string[];
+  types_of_cheese: string;
+}
+
+const submitHandler = (d: FormInputs) => console.log(d);
 
 export const form = () => (
   <Form onSubmitFn={submitHandler} validationSchema={validationSchema}>
