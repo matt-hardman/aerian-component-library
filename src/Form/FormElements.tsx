@@ -8,7 +8,7 @@ import styles from "./FormElements.module.scss";
 import { useFormContext } from "./useFormContext";
 import { Controller } from "react-hook-form";
 
-interface Props extends HTMLAttributes<HTMLElement> {
+interface Props<T = HTMLInputElement> extends HTMLAttributes<T> {
   hideLabel?: boolean;
   label: string;
   name: string;
@@ -19,7 +19,7 @@ interface FormInputProps extends Props {
   errorMessage?: string;
 }
 
-interface FormGroupInputProps extends Props {
+interface FormGroupInputProps extends Props<HTMLFieldSetElement> {
   type?: "radio" | "checkbox";
   inputs: Array<Omit<RadioInputProps, "name">>;
 }
