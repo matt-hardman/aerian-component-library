@@ -1,10 +1,5 @@
 .formInput {
-  align-items: center;
   display: flex;
-
-  input {
-    margin-left: 8px;
-  }
 }
 
 .formContents {
@@ -21,16 +16,35 @@
     cursor: pointer;
     border: none;
     height: 30px;
-    width: 120px;
   }
 
   button:first-child {
     background: #2e93ff;
     margin-right: 16px;
+    width: 120px;
   }
 
   button:nth-child(2) {
     background: none;
     text-decoration: underline;
+  }
+}
+
+.themedForm {
+  padding: 40px;
+  --input-border: 2px solid red;
+  --input-border-radius: 20px;
+  --form-contents-background: blue;
+  --form-contents-padding: 20px;
+}
+
+.themedFormControls {
+  --form-controls-background: pink;
+  --form-controls-padding: 20px;
+
+  button:first-child {
+    background: orange;
+    border: none;
+    width: 200px;
   }
 }

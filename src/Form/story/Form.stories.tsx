@@ -10,6 +10,7 @@ import {
 } from "..";
 
 import styles from "./FormStory.module.scss";
+import applyTheme from "../../Theme";
 
 export default {
   title: "Form",
@@ -103,4 +104,18 @@ export const themedForm = () => (
 
     <FormControls className={styles.formControls} />
   </Form>
+);
+
+const ThemedForm = applyTheme(Form, { className: styles.themedForm });
+const ThemedFormControls = applyTheme(FormControls, {
+  className: styles.themedFormControls,
+});
+
+export const applyThemeForm = () => (
+  <ThemedForm onSubmitFn={submitHandler} validationSchema={{}}>
+    <FormContents>
+      <FormInput label="Hello" name="hello"></FormInput>
+    </FormContents>
+    <ThemedFormControls />
+  </ThemedForm>
 );
