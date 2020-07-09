@@ -2,10 +2,14 @@ import React, { HTMLAttributes } from "react";
 import * as yup from "yup";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
+import cx from "classnames";
 
 import { FormContext } from "./useFormContext";
 
-interface FormProps<T extends object> extends HTMLAttributes<HTMLElement> {
+import styles from "./Form.module.scss";
+
+export interface FormProps<T extends object>
+  extends HTMLAttributes<HTMLElement> {
   validationSchema: Record<string, YupTypes>;
   onSubmitFn: SubmitHandler<T>;
   onResetFn?: () => void;
@@ -25,7 +29,7 @@ export const FormContents: React.FC<FormContentsProps> = ({
   className,
   ...rest
 }) => (
-  <div className={className} {...rest}>
+  <div className={cx([styles.formContents, className])} {...rest}>
     {children}
   </div>
 );
@@ -36,7 +40,7 @@ export const FormControls: React.FC<FormControlsProps> = ({
   resetButtonText = "Clear",
   ...rest
 }) => (
-  <div className={className} {...rest}>
+  <div className={cx([styles.formControls, className])} {...rest}>
     <button type="submit">{submitButtonText}</button>
 
     <button type="reset">{resetButtonText}</button>
@@ -70,5 +74,3 @@ export function Form<T extends object>({
     </FormContext.Provider>
   );
 }
-
-export default Form;
