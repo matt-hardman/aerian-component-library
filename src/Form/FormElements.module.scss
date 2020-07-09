@@ -7,12 +7,30 @@
   margin: 0;
 }
 
+.formItem {
+  display: flex;
+  flex-direction: column;
+}
+
 .input {
   border: var(--input-border);
   border-radius: var(--input-border-radius);
   min-height: var(--input-height);
   padding: 0 var(--input-padding);
   width: var(--input-width);
+}
+
+.input:active,
+.input:focus {
+  border: var(--input-border-focus);
+}
+
+.input:invalid {
+  border: var(--input-border-invalid);
+}
+
+.errorMessage {
+  color: var(--error-message-colour);
 }
 
 .radioOrCheckButtonLabel {
