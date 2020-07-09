@@ -85,6 +85,8 @@ export const FormInput: React.FC<FormInputProps> = ({
         type={type}
         aria-label={label}
         ref={register}
+        aria-describedby={`err-${name}`}
+        aria-invalid={!!errors[name]}
         className={styles.input}
         {...rest}
       />
@@ -93,7 +95,13 @@ export const FormInput: React.FC<FormInputProps> = ({
         name={name}
         errors={errors}
         render={({ message }) => (
-          <span className={styles.errorMessage}>{errorMessage ?? message}</span>
+          <span
+            id={`err-${name}`}
+            className={styles.errorMessage}
+            aria-live="polite"
+          >
+            {errorMessage ?? message}
+          </span>
         )}
       ></ErrorMessage>
     </div>
