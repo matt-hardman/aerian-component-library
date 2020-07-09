@@ -7,3 +7,5 @@ export {
   FormSelect,
   ControlledElement,
 } from "./Form";
+
+export { applyTheme } from "./Theme";
