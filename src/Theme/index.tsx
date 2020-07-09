@@ -1,8 +1,8 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import cx from "classnames";
 
-interface Options {
-  className: string;
+interface Options extends HTMLAttributes<HTMLElement> {
+  className?: string;
 }
 
 export const applyTheme = <T extends Options>(
