@@ -44,15 +44,10 @@ interface SelectedDropdownItem {
 }
 
 interface SelectProps extends Omit<Props, "defaultValue" | "onChange"> {
-  defaultValue?: SelectOption;
+  initialValue?: SelectOption;
   label: string;
   options: SelectOption[];
-  positionalClass?: string;
   onChange?: (selectedOption: SelectedDropdownItem) => void;
-}
-
-interface FormSelectProps extends Props {
-  options: SelectOption[];
 }
 
 interface WrapComponentProps extends Record<string, any> {
@@ -172,7 +167,7 @@ export const FormInputGroup: React.FC<FormGroupInputProps> = ({
 
 export const Select: React.FC<SelectProps> = ({
   label,
-  defaultValue,
+  initialValue,
   options,
   className,
   onChange,
@@ -195,7 +190,7 @@ export const Select: React.FC<SelectProps> = ({
       <ReactSelect
         id={selectId}
         name={selectId}
-        defaultValue={defaultValue || options[0]}
+        defaultValue={initialValue || options[0]}
         options={options}
         onChange={setSelection}
       />
@@ -203,11 +198,11 @@ export const Select: React.FC<SelectProps> = ({
   );
 };
 
-export const FormSelect: React.FC<FormSelectProps> = ({
+export const FormSelect: React.FC<SelectProps> = ({
   label,
   name,
   options,
-  defaultValue,
+  initialValue,
   className,
   ...rest
 }) => (
@@ -216,10 +211,10 @@ export const FormSelect: React.FC<FormSelectProps> = ({
     name={name}
     label={label}
     options={options}
-    defaultValue={defaultValue || options[0]}
+    initialValue={initialValue || options[0]}
     className={className}
     {...rest}
-  />
+  ></ControlledElement>
 );
 
 // typings - pass in component props
