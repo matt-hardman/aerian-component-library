@@ -44,7 +44,8 @@ interface SelectedDropdownItem {
 }
 
 interface SelectProps extends Omit<Props, "defaultValue" | "onChange"> {
-  defaultInput?: SelectOption;
+  defaultValue?: SelectOption;
+  controlledDefault?: SelectOption;
   label: string;
   options: SelectOption[];
   onChange?: (selectedOption: SelectedDropdownItem) => void;
@@ -167,7 +168,7 @@ export const FormInputGroup: React.FC<FormGroupInputProps> = ({
 
 export const Select: React.FC<SelectProps> = ({
   label,
-  defaultInput,
+  controlledDefault,
   options,
   className,
   onChange,
@@ -185,14 +186,15 @@ export const Select: React.FC<SelectProps> = ({
   );
 
   return (
-    <div className={cx([className])} {...rest}>
+    <div className={cx([className])}>
       <label htmlFor={selectId}>{label}</label>
       <ReactSelect
         id={selectId}
         name={selectId}
-        defaultValue={defaultInput || options[0]}
+        defaultValue={controlledDefault || options[0]}
         options={options}
         onChange={setSelection}
+        {...rest}
       />
     </div>
   );
@@ -202,7 +204,7 @@ export const FormSelect: React.FC<SelectProps> = ({
   label,
   name,
   options,
-  defaultInput,
+  defaultValue,
   className,
   ...rest
 }) => (
@@ -211,7 +213,8 @@ export const FormSelect: React.FC<SelectProps> = ({
     name={name}
     label={label}
     options={options}
-    defaultInput={defaultInput || options[0]}
+    defaultValue={defaultValue || options[0]}
+    controlledDefault={defaultValue || options[0]}
     className={className}
     {...rest}
   ></ControlledElement>

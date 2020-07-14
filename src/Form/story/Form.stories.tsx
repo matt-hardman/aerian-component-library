@@ -80,7 +80,7 @@ export const form = () => (
       <FormSelect
         name="types_of_cheese"
         label="Types of cheese"
-        defaultInput={{ label: "Gouda", value: "gouda" }}
+        defaultValue={{ label: "Gouda", value: "gouda" }}
         options={[
           { label: "Cheddar", value: "cheddar" },
           { label: "Gouda", value: "gouda" },
