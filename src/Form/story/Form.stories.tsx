@@ -29,7 +29,7 @@ interface FormInputs {
 
 const submitHandler = (d: FormInputs) => console.log(d);
 
-export const form = () => (
+export const formStory = () => (
   <Form onSubmitFn={submitHandler} validationSchema={validationSchema}>
     <FormContents>
       <FormInput
