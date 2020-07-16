@@ -43,7 +43,7 @@ export const form = () => (
       <FormInputGroup
         name="types_of_fish"
         label="Types of fish"
-        inputs={[
+        options={[
           {
             label: "Salmon",
             value: "salmon",
@@ -53,6 +53,10 @@ export const form = () => (
             label: "Pike",
             value: "pike",
           },
+          {
+            label: "Trout",
+            value: "trout",
+          },
         ]}
       />
 
@@ -60,7 +64,7 @@ export const form = () => (
         name="peoples_name"
         label="People's Names"
         type="checkbox"
-        inputs={[
+        options={[
           {
             label: "Jon",
             value: "jon",
@@ -92,31 +96,98 @@ export const form = () => (
   </Form>
 );
 
-export const themedForm = () => (
-  <Form onSubmitFn={submitHandler} validationSchema={validationSchema}>
-    <FormContents className={styles.formContents}>
+const ThemedFormContents = applyTheme(FormContents, { className: styles.form });
+const ThemedFormControls = applyTheme(FormControls, {
+  className: styles.formControls,
+});
+
+export const applyThemeForm = () => (
+  <Form onSubmitFn={submitHandler} validationSchema={{}}>
+    <ThemedFormContents>
+      <FormInput
+        name="email"
+        label="Email"
+        type="email"
+        className={styles.formInput}
+        placeholder="email@email.com"
+      />
+
       <FormInput
         name="name"
         label="Name"
         placeholder="Your name"
         className={styles.formInput}
       />
-    </FormContents>
 
-    <FormControls className={styles.formControls} />
-  </Form>
-);
+      <FormInputGroup
+        name="types_of_fish"
+        label="Types of fish"
+        optionsClassName={styles.radioSelectGroup}
+        options={[
+          {
+            label: "Salmon",
+            value: "salmon",
+            defaultChecked: true,
+          },
+          {
+            label: "Pike",
+            value: "pike",
+          },
+          {
+            label: "Trout",
+            value: "trout",
+          },
+        ]}
+      />
 
-const ThemedForm = applyTheme(Form, { className: styles.themedForm });
-const ThemedFormControls = applyTheme(FormControls, {
-  className: styles.themedFormControls,
-});
+      <FormInputGroup
+        name="peoples_name"
+        label="People's Names"
+        type="checkbox"
+        optionsClassName={styles.radioSelectGroup}
+        options={[
+          {
+            label: "Jon",
+            value: "jon",
+            defaultChecked: true,
+            className: styles.customRadioSelect,
+          },
+          {
+            label: "Amy",
+            value: "amy",
+          },
+          {
+            label: "Carol",
+            value: "carol",
+          },
+        ]}
+      />
 
-export const applyThemeForm = () => (
-  <ThemedForm onSubmitFn={submitHandler} validationSchema={{}}>
-    <FormContents>
-      <FormInput label="Hello" name="hello"></FormInput>
-    </FormContents>
+      <FormSelect
+        name="types_of_cheese"
+        label="Types of cheese"
+        className={styles.formInput}
+        defaultValue={{ label: "Gouda", value: "gouda" }}
+        options={[
+          { label: "Cheddar", value: "cheddar" },
+          { label: "Gouda", value: "gouda" },
+          { label: "Brie", value: "brie" },
+        ]}
+      />
+
+      <FormSelect
+        name="types_of_cheese_multi"
+        label="Types of cheese multi select"
+        isMulti
+        className={styles.formInput}
+        defaultValue={{ label: "Gouda", value: "gouda" }}
+        options={[
+          { label: "Cheddar", value: "cheddar" },
+          { label: "Gouda", value: "gouda" },
+          { label: "Brie", value: "brie" },
+        ]}
+      />
+    </ThemedFormContents>
     <ThemedFormControls />
-  </ThemedForm>
+  </Form>
 );
