@@ -1,15 +1,15 @@
 @import "../styles/form/theme";
 
+.formItem {
+  display: flex;
+  flex-direction: var(--form-flex-flow);
+}
+
 .formItemGroup {
   border: none;
   display: flex;
   padding: 0;
   margin: 0;
-}
-
-.formItem {
-  display: flex;
-  flex-direction: column;
 }
 
 .input {
@@ -29,11 +29,23 @@
   border: var(--input-border-invalid);
 }
 
+.label {
+  padding: var(--label-padding);
+}
+
 .errorMessage {
   color: var(--error-message-colour);
 }
 
+.radioOrCheckButtonGroup {
+  align-items: var(--radio-group-align);
+  display: flex;
+  flex-flow: var(--radio-group-flex-flow);
+  justify-content: var(--radio-group-justify);
+  width: var(--radio-group-width);
+}
+
 .radioOrCheckButtonLabel {
   margin: 0;
-  padding-left: var(--input-padding);
+  padding: 0 var(--input-padding);
 }
