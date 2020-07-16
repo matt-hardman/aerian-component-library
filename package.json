@@ -1,9 +1,10 @@
 {
-  "name": "test-aerian-component-library",
+  "name": "@matt/aerian-component-library",
   "version": "0.1.8",
   "description": "",
   "main": "build/index.js",
   "module": "build/index.es.js",
+  "repository": "https://github.com/matt-hardman/aerian-component-library",
   "files": [
     "build"
   ],
@@ -29,7 +30,9 @@
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@storybook/react": "^5.3.19",
+    "@types/classnames": "^2.2.10",
     "@types/react": "^16.9.41",
+    "@types/react-select": "^3.0.14",
     "@types/yup": "^0.29.3",
     "autoprefixer": "^9.8.4",
     "babel-loader": "^8.1.0",
@@ -51,5 +54,9 @@
     "typescript": "^3.9.6",
     "yalc": "^1.0.0-pre.37",
     "yup": "^0.29.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
+    "directory": "build"
   }
 }
