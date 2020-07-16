@@ -1,10 +1,10 @@
 {
-  "name": "@matt/aerian-component-library",
+  "name": "@matt-hardman/aerian-component-library",
   "version": "0.1.8",
   "description": "",
   "main": "build/index.js",
   "module": "build/index.es.js",
-  "repository": "https://github.com/matt-hardman/aerian-component-library",
+  "repository": "https://github.com/matt-hardman/aerian-component-library.git",
   "files": [
     "build"
   ],

@@ -29,7 +29,7 @@ interface FormInputs {
 
 const submitHandler = (d: FormInputs) => console.log(d);
 
-export const formStory = () => (
+export const form = () => (
   <Form onSubmitFn={submitHandler} validationSchema={validationSchema}>
     <FormContents>
       <FormInput
@@ -166,19 +166,6 @@ export const applyThemeForm = () => (
       <FormSelect
         name="types_of_cheese"
         label="Types of cheese"
-        className={styles.formInput}
-        defaultValue={{ label: "Gouda", value: "gouda" }}
-        options={[
-          { label: "Cheddar", value: "cheddar" },
-          { label: "Gouda", value: "gouda" },
-          { label: "Brie", value: "brie" },
-        ]}
-      />
-
-      <FormSelect
-        name="types_of_cheese_multi"
-        label="Types of cheese multi select"
-        isMulti
         className={styles.formInput}
         defaultValue={{ label: "Gouda", value: "gouda" }}
         options={[
