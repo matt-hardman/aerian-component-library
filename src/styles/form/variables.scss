@@ -27,6 +27,13 @@ $border-radius: 4px;
 $default-padding: 8px;
 
 :root {
+  // FORM
+  --form-flex-flow: column;
+  // FORM CONTENTS
+  --form-contents-background: white;
+  // FORM CONTROLS
+  --form-controls-backgorund: white;
+  --form-controls-padding: 0;
   // FORM INPUT ELEMENT
   --input-border-colour: #{$grey-40};
   --input-border-colour-focus: #{$blue-100};
@@ -39,9 +46,11 @@ $default-padding: 8px;
   --input-width: 100%;
   --input-padding: #{$default-padding};
   --error-message-colour: #{$red-100};
-  // FORM CONTENTS
-  --form-contents-background: white;
-  // FORM CONTROLS
-  --form-controls-backgorund: white;
-  --form-controls-padding: 0;
+  // LABEL
+  --label-padding: 10px 0;
+  // RADIO BUTTONS
+  --radio-group-flex-flow: row wrap;
+  --radio-group-justify: flex-start;
+  --radio-group-align: center;
+  --radio-group-width: 100%;
 }
