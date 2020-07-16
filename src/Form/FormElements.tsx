@@ -19,9 +19,10 @@ interface FormInputProps extends Props {
   errorMessage?: string;
 }
 
-interface FormGroupInputProps extends Props<HTMLFieldSetElement> {
+interface FormInputGroupProps extends Props<HTMLFieldSetElement> {
   type?: "radio" | "checkbox";
-  inputs: Array<Omit<RadioInputProps, "name">>;
+  options: Array<Omit<RadioInputProps, "name">>;
+  optionsClassName?: string;
 }
 
 interface RadioInputProps extends HTMLAttributes<HTMLElement> {
@@ -48,6 +49,7 @@ interface SelectProps extends Omit<Props, "defaultValue" | "onChange"> {
   controlledDefault?: SelectOption;
   label: string;
   options: SelectOption[];
+  isMulti?: boolean;
   onChange?: (selectedOption: SelectedDropdownItem) => void;
 }
 
@@ -133,12 +135,13 @@ export const RadioOrCheckInput: React.FC<RadioInputProps> = ({
   );
 };
 
-export const FormInputGroup: React.FC<FormGroupInputProps> = ({
+export const FormInputGroup: React.FC<FormInputGroupProps> = ({
   className,
   hideLabel,
   label,
   name,
-  inputs,
+  options,
+  optionsClassName,
   type = "radio",
   ...rest
 }) => {
@@ -150,8 +153,9 @@ export const FormInputGroup: React.FC<FormGroupInputProps> = ({
       {...rest}
     >
       {!hideLabel && <legend className={styles.label}>{label}</legend>}
-      <div className={styles.radioOrCheckButtonGroup}>
-        {inputs.map(({ value, label, defaultChecked }) => (
+
+      <div className={cx([styles.radioOrCheckButtonGroup, optionsClassName])}>
+        {options.map(({ value, label, defaultChecked, ...optionsRest }) => (
           <RadioOrCheckInput
             key={value}
             label={label}
@@ -159,6 +163,7 @@ export const FormInputGroup: React.FC<FormGroupInputProps> = ({
             value={value}
             type={type}
             defaultChecked={defaultChecked}
+            {...optionsRest}
           />
         ))}
       </div>
@@ -172,7 +177,7 @@ export const Select: React.FC<SelectProps> = ({
   options,
   className,
   onChange,
-  ...rest
+  isMulti = false,
 }) => {
   const selectId = label.replace(/\s+/g, "-").toLowerCase();
 
@@ -186,15 +191,17 @@ export const Select: React.FC<SelectProps> = ({
   );
 
   return (
-    <div className={cx([className])}>
-      <label htmlFor={selectId}>{label}</label>
+    <div className={className}>
+      <div className={styles.label}>
+        <label htmlFor={selectId}>{label}</label>
+      </div>
       <ReactSelect
         id={selectId}
         name={selectId}
         defaultValue={controlledDefault || options[0]}
         options={options}
         onChange={setSelection}
-        {...rest}
+        isMulti={isMulti}
       />
     </div>
   );
